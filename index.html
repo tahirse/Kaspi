@@ -108,19 +108,21 @@
         .header-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 0;
             gap: 12px;
+            width: 100%;
         }
 
         .brand {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             text-decoration: none;
             transition: var(--transition);
             flex: 1;
             min-width: 0;
+            justify-content: flex-start;
         }
 
         .brand:hover {
@@ -147,7 +149,8 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 12px;
+             object-position: center 50%; 
+            border-radius: 20px;
         }
 
         .brand-text {
@@ -156,6 +159,7 @@
             align-items: flex-start;
             flex: 1;
             min-width: 0;
+            text-align: left;
         }
 
         .brand-text h1 {
@@ -170,6 +174,7 @@
             line-height: 1.2;
             margin-bottom: 4px;
             word-wrap: break-word;
+            text-align: left;
         }
 
         .brand-text .tagline {
@@ -183,6 +188,7 @@
             color: transparent;
             letter-spacing: 0.3px;
             margin-bottom: 6px;
+            text-align: left;
         }
 
         .brand-text .programs-tagline {
@@ -190,6 +196,7 @@
             flex-wrap: wrap;
             gap: 6px;
             margin-top: 4px;
+            justify-content: flex-start;
         }
 
         .program-badge {
@@ -247,6 +254,7 @@
             z-index: 1000;
             flex-shrink: 0;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-left: auto;
         }
 
         .nav-toggle span {
@@ -1661,6 +1669,79 @@
             padding: 0 5px;
         }
 
+        /* Hero bölməsində kartları düzəlt */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px 15px;
+                min-height: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+                margin-bottom: 8px;
+                white-space: nowrap;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+                line-height: 1.3;
+                white-space: normal;
+                word-break: break-word;
+            }
+        }
+
+        /* Xüsusi ikinci kartın düzəlişi */
+        .stat-card:nth-child(2) .stat-number {
+            font-size: 1.8rem;
+            line-height: 1.1;
+        }
+
+        /* Mobil nav header də düzəlt */
+        .nav-header-premium .brand-text {
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        .nav-header-premium .brand-text h1 {
+            text-align: left;
+        }
+
+        .nav-header-premium .brand-text .tagline {
+            text-align: left;
+        }
+
+        .nav-header-premium .brand-text .programs-tagline {
+            justify-content: flex-start;
+        }
+
+        /* Tablet və daha böyük ekranlar üçün */
+        @media (min-width: 769px) {
+            .brand-text {
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            .brand-text h1 {
+                text-align: left;
+            }
+            
+            .brand-text .tagline {
+                text-align: left;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         /* Responsive Design - Tablet */
         @media (min-width: 768px) {
             body {
@@ -1835,7 +1916,7 @@
         }
 
         /* Xüsusi kiçik ekranlar üçün */
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .hero-title {
                 font-size: 2rem;
             }
@@ -1847,11 +1928,6 @@
             .hero-badge {
                 font-size: 0.85rem;
                 padding: 10px 15px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
             }
             
             .section-title, .page-title {
@@ -1874,10 +1950,34 @@
             .schedule-card {
                 padding: 25px 20px;
             }
+            
+            .brand-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .brand-text .tagline {
+                font-size: 0.65rem;
+            }
+            
+            .program-badge {
+                font-size: 0.6rem;
+                padding: 4px 6px;
+            }
+            
+            .hero-subtitle {
+                text-align: center;
+                font-size: 1rem;
+            }
+            
+            .hero-badge {
+                flex-direction: column;
+                gap: 5px;
+                padding: 10px 15px;
+            }
         }
 
         /* Xüsusi çox kiçik ekranlar üçün */
-        @media (max-width: 320px) {
+        @media (max-width: 360px) {
             .hero-title {
                 font-size: 1.8rem;
             }
@@ -1906,6 +2006,30 @@
                 font-size: 0.75rem;
                 padding: 6px 15px;
             }
+            
+            .program-badge {
+                font-size: 0.55rem;
+                padding: 3px 5px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .stat-card:nth-child(2) .stat-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Xüsusi çox kiçik ekranlar */
+        @media (max-width: 320px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .hero-title .highlight {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
@@ -1929,20 +2053,15 @@
     <div class="nav-overlay-premium" id="navOverlay"></div>
     <nav class="premium-mobile-nav" id="mobileNav">
         <div class="nav-header-premium">
-            <a href="https://www.kaspi.edu.az/az/" class="brand" target="_blank" style="text-decoration: none;">
-                <div class="brand-logo">
-                    <img src="https://kaspiliseyi.az/uploads/667a7a6ee62c9ae6ae9b0078be404f8412e42d926142b.png" alt="Kaspi Əcəmi Logo">
+            <div class="brand-text">
+                <h1>Kaspi Əcəmi</h1>
+                <div class="tagline">Təhsil - ilk addımdan etibarən fərq yaradır</div>
+                <div class="programs-tagline">
+                    <span class="program-badge kids" data-program="kids-3-4">KIDS (3-4 yaş)</span>
+                    <span class="program-badge etud" data-program="kids-4-5">KIDS (4-5 yaş)</span>
+                    <span class="program-badge abiturient" data-program="kids-5-6">KIDS (5-6 yaş)</span>
                 </div>
-</a>
-                <div class="brand-text">
-                    <h1>Kaspi Əcəmi</h1>
-                    <div class="tagline">Təhsil - ilk addımdan etibarən fərq yaradır</div>
-                    <div class="programs-tagline">
-                        <span class="program-badge kids" data-program="kids-3-4">KIDS (3-4 yaş)</span>
-                        <span class="program-badge etud" data-program="kids-4-5">KIDS (4-5 yaş)</span>
-                        <span class="program-badge abiturient" data-program="kids-5-6">KIDS (5-6 yaş)</span>
-                    </div>
-                </div>
+            </div>
             
             <button class="close-nav-premium" id="closeNav">
                 <i class="fas fa-times"></i>
@@ -1951,9 +2070,8 @@
         
         <ul class="nav-links-premium">
             <li><a href="#" class="nav-link-mobile" data-page="home"><i class="fas fa-home"></i> Əsas Səhifə</a></li>
-            <li><a href="#" class="nav-link-mobile" data-page="courses"><i class="fas fa-book"></i> Kurslar</a></li>
-            <li><a href="#" class="nav-link-mobile" data-page="teachers"><i class="fas fa-chalkboard-teacher"></i> Müəllimlər</a></li>
-            <li><a href="#" class="nav-link-mobile" data-page="schedule"><i class="fas fa-calendar-alt"></i> Qrafik</a></li>
+            <li><a href="#" class="nav-link-mobile" data-page="courses"><i class="fas fa-book"></i> Xidmətlərimiz</a></li>
+            <li><a href="#" class="nav-link-mobile" data-page="schedule"><i class="fas fa-calendar-alt"></i> Dərs cədvəli</a></li>
             <li><a href="#" class="nav-link-mobile" data-page="contact"><i class="fas fa-phone-alt"></i> Əlaqə</a></li>
         </ul>
     </nav>
@@ -1963,27 +2081,20 @@
         <!-- Premium Header -->
         <header class="premium-header">
             <div class="header-top">
-                <a href="https://www.kaspi.edu.az/az/" class="brand" target="_blank">
-                    <div class="brand-logo">
-                        <img src="https://kaspiliseyi.az/uploads/667a7a6ee62c9ae6ae9b0078be404f8412e42d926142b.png" alt="Kaspi Əcəmi Logo">
+                <div class="brand-text">
+                    <h1>Kaspi Əcəmi</h1>
+                    <div class="tagline">Təhsil - ilk addımdan etibarən fərq yaradır</div>
+                    <div class="programs-tagline">
+                      <span class="program-badge kids" data-program="kids-3-4">KIDS (3-4 yaş)</span>
+                      <span class="program-badge etud" data-program="kids-4-5">KIDS (4-5 yaş)</span>
+                      <span class="program-badge abiturient" data-program="kids-5-6">KIDS (5-6 yaş)</span>
                     </div>
- </a>
-                    <div class="brand-text">
-                        <h1>Kaspi Əcəmi</h1>
-                        <div class="tagline">Təhsil - ilk addımdan etibarən fərq yaradır</div>
-                        <div class="programs-tagline">
-                          <span class="program-badge kids" data-program="kids-3-4">KIDS (3-4 yaş)</span>
-                          <span class="program-badge etud" data-program="kids-4-5">KIDS (4-5 yaş)</span>
-                          <span class="program-badge abiturient" data-program="kids-5-6">KIDS (5-6 yaş)</span>
-                        </div>
-                    </div>
-               
+                </div>
                 
                 <div class="premium-nav">
                     <a href="#" class="nav-link" data-page="home">Əsas</a>
-                    <a href="#" class="nav-link" data-page="courses">Kurslar</a>
-                    <a href="#" class="nav-link" data-page="teachers">Müəllimlər</a>
-                    <a href="#" class="nav-link" data-page="schedule">Qrafik</a>
+                    <a href="#" class="nav-link" data-page="courses">Xidmətlərimiz</a>
+                    <a href="#" class="nav-link" data-page="schedule">Dərs cədvəli</a>
                     <a href="#" class="nav-link" data-page="contact">Əlaqə</a>
                 </div>
                 
@@ -2014,8 +2125,8 @@
                             <div class="stat-label">Dil Proqramı</div>
                         </div>
                         <div class="stat-card fade-in">
-                            <div class="stat-number">8+</div>
-                            <div class="stat-label">Təcrübəli Müəllim</div>
+                            <div class="stat-number">Peşəkar</div>
+                            <div class="stat-label">müəllim heyəti</div>
                         </div>
                         <div class="stat-card fade-in">
                             <div class="stat-number">100%</div>
@@ -2030,8 +2141,8 @@
                 <!-- Languages Section -->
                 <section class="languages-section">
                     <div class="section-header fade-in">
-                        <div class="section-label">Dil Təhsili</div>
-                        <h2 class="section-title">Eksklüziv Dil Proqramları</h2>
+                        <div class="section-label">Hazırlıq mərkəzi</div>
+                        <h2 class="section-title"> Məktəbəqədr hazırlıq tədris mərkəzi</h2>
                         <p class="section-subtitle">3-6 yaş uşaqlar üçün xüsusi hazırlanmış dil təhsili proqramları</p>
                     </div>
                     
@@ -2040,12 +2151,14 @@
                             <div class="language-icon-wrapper">
                                 <i class="fas fa-flag language-icon"></i>
                             </div>
-                            <h3 class="language-name">Azərbaycan Dili</h3>
-                            <p class="language-desc">Ana dilimizdə oxuma, yazma, riyazi anlayışlar və məntiqi düşüncə inkişafı. Uşaqlar üçün xüsusi hazırlanmış proqram.</p>
+                            <h3 class="language-name">Azərbaycan bölməsi</h3>
+                            <p class="language-desc">3–6 yaşlı uşaqlar üçün xüsusi hazırlanmış təhsil proqramı.
+Övladınız hərfləri tanıyacaq və oxumağa başlayacaq, sadə sözlər yazmağı öyrənəcək. Rəqəmlərlə tanış olacaq, sayma, toplama və çıxma vərdişləri formalaşacaq. Məntiqi düşünmə bacarığı inkişaf etdiriləcək.
+Bütün bu biliklər oyunlar, şəkillər və əyləncəli tapşırıqlar vasitəsilə öyrədilir.</p>
                             <ul class="language-features">
-                                <li><i class="fas fa-check-circle"></i> Əlifba və oxuma</li>
-                                <li><i class="fas fa-check-circle"></i> Riyazi anlayışlar</li>
-                                <li><i class="fas fa-check-circle"></i> Məntiqi düşüncə inkişafı</li>
+                                <li><i class="fas fa-check-circle"></i> Əylənərək öyrənmə</li>
+                                <li><i class="fas fa-check-circle"></i> Sağlam zehni inkişaf</li>
+                                <li><i class="fas fa-check-circle"></i> Uşağa uyğun metodika</li>
                             </ul>
                         </div>
                         
@@ -2053,12 +2166,13 @@
                             <div class="language-icon-wrapper">
                                 <i class="fas fa-globe-europe language-icon"></i>
                             </div>
-                            <h3 class="language-name">Rus Dili</h3>
-                            <p class="language-desc">Rus dilində ünsiyyət, əlifba, oxuma və danışma bacarıqları. Müasir metodika ilə interaktiv dərslər.</p>
+                            <h3 class="language-name">Rus bölməsi</h3>
+                            <p class="language-desc">3–6 yaşlı uşaqlar üçün nəzərdə tutulmuş xüsusi tədris proqramı.
+Bu proqram çərçivəsində uşaqlar hərfləri tanıyır, oxumağa başlayır, sadə sözlər yazmağı və fikirlərini sərbəst ifadə etməyi öyrənirlər, rəqəmlərlə tanış olur, sayma, toplama və çıxma bacarıqları formalaşır, məntiqi düşünmə qabiliyyəti inkişaf edir. Tədris prosesi oyunlar, vizual materiallar və tapşırıqlar əsasında həyata keçirilir.</p>
                             <ul class="language-features">
-                                <li><i class="fas fa-check-circle"></i> Əlifba və fonetika</li>
+                                <li><i class="fas fa-check-circle"></i> Hərflər və rəqəmlər</li>
                                 <li><i class="fas fa-check-circle"></i> Danışma və ünsiyyət</li>
-                                <li><i class="fas fa-check-circle"></i> Mədəniyyət və ənənələr</li>
+                                <li><i class="fas fa-check-circle"></i> Anlayış</li>
                             </ul>
                         </div>
                         
@@ -2066,12 +2180,15 @@
                             <div class="language-icon-wrapper">
                                 <i class="fas fa-globe-americas language-icon"></i>
                             </div>
-                            <h3 class="language-name">İngilis Dili</h3>
-                            <p class="language-desc">İngilis dilində əlifba, sözlər, sadə cümlələr. Mahnılar, oyunlar və vizual materiallar vasitəsilə öyrənmə.</p>
+                            <h3 class="language-name">İngilis bölməsi</h3>
+                            <p class="language-desc"> 3–6 yaşlı uşaqlar üçün nəzərdə tutulmuş müasir ingilis dili tədris proqramı.
+Proqram çərçivəsində uşaqlar ingilis dilində hərfləri, sözləri və sadə cümlələri öyrənirlər.
+Dinləmə və danışma bacarıqları oyunlar, mahnılar və vizual materiallar vasitəsilə inkişaf etdirilir.
+Tədris prosesi uşaqların dili asan və maraqlı şəkildə mənimsəməsinə yönəlib.</p>
                             <ul class="language-features">
-                                <li><i class="fas fa-check-circle"></i> Əlifba və sözlər</li>
-                                <li><i class="fas fa-check-circle"></i> Sadə cümlələr</li>
-                                <li><i class="fas fa-check-circle"></i> Oyunla öyrənmə</li>
+                               <li><i class="fas fa-check-circle"></i> Hərflərin öyrənilməsi</li>
+<li><i class="fas fa-check-circle"></i> Sadə sözlər</li>
+<li><i class="fas fa-check-circle"></i> Danışıq bacarıqları</li>
                             </ul>
                         </div>
                     </div>
@@ -2081,8 +2198,8 @@
                 <section class="features-section">
                     <div class="section-header fade-in">
                         <div class="section-label">Üstünlüklərimiz</div>
-                        <h2 class="section-title">Niyə Bizim Kursumuz?</h2>
-                        <p class="section-subtitle">Premium təhsil üçün xüsusi hazırlanmış imkanlar</p>
+                        <h2 class="section-title">Niyə bizim təhsil mərkəzimiz?</h2>
+                        <p class="section-subtitle">Məktəbəqədər hazırlıq üçün xüsusi hazırlanmış imkanlar</p>
                     </div>
                     
                     <div class="features-grid">
@@ -2090,7 +2207,7 @@
                             <div class="feature-icon">
                                 <i class="fas fa-user-graduate"></i>
                             </div>
-                            <h3 class="feature-title">Peşəkar Müəllimlər</h3>
+                            <h3 class="feature-title">Peşəkar müəllimlər</h3>
                             <p class="feature-desc">Uşaqlarla işləmə təcrübəsi olan yüksək ixtisaslı pedaqoqlar.</p>
                         </div>
                         
@@ -2098,7 +2215,7 @@
                             <div class="feature-icon">
                                 <i class="fas fa-child"></i>
                             </div>
-                            <h3 class="feature-title">Yaşa Uyğun Proqram</h3>
+                            <h3 class="feature-title">Yaşa uyğun proqram</h3>
                             <p class="feature-desc">3-6 yaş uşaqlarının inkişaf xüsusiyyətlərinə uyğun tədris planı.</p>
                         </div>
                         
@@ -2106,7 +2223,7 @@
                             <div class="feature-icon">
                                 <i class="fas fa-gamepad"></i>
                             </div>
-                            <h3 class="feature-title">Oyunla Təhsil</h3>
+                            <h3 class="feature-title">Oyunla təhsil</h3>
                             <p class="feature-desc">Müasir metodika ilə oyun vasitəsilə öyrənmə texnikaları.</p>
                         </div>
                         
@@ -2114,7 +2231,7 @@
                             <div class="feature-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
-                            <h3 class="feature-title">Fərdi Yanaşma</h3>
+                            <h3 class="feature-title">Fərdi yanaşma</h3>
                             <p class="feature-desc">Hər uşağın inkişaf səviyyəsinə uyğun fərdi yanaşma.</p>
                         </div>
                     </div>
@@ -2123,8 +2240,8 @@
                 <!-- Premium CTA -->
                 <section class="premium-cta fade-in">
                     <div class="cta-bg"></div>
-                    <h2 class="cta-title">Uşağınızın Gələcəyini Bizimlə Qurun</h2>
-                    <p class="cta-subtitle">Kaspi məktəbəqədər hazırlıq kursumuzda yerlər məhduddur.</p>
+                    <h2 class="cta-title">Uşağınızın gələcəyini bizimlə qurun</h2>
+                    <p class="cta-subtitle">Kaspi məktəbəqədər hazırlıq mərkəzimizdə yerlər məhduddur.</p>
                     
                     <div class="contact-buttons">
                         <a href="https://wa.me/994555253132?text=Kaspi%20%C6%8Fc%C9%99mi%20Premium%20M%C9%99kt%C9%99b%C9%99q%C9%99d%C9%99r%20kursu%20haqq%C4%B1nda%20m%C9%99lumat%20ist%C9%99yir%C9%99m" class="whatsapp-button-premium" id="whatsappBtn" target="_blank">
@@ -2147,10 +2264,7 @@
                             <i class="fas fa-phone"></i>
                             <span>Telefon: +994 12 431 42 63</span>
                         </div>
-                        <div class="contact-item-premium">
-                            <i class="fas fa-envelope"></i>
-                            <span>rashad.ismayılzadə1@gmail.com</span>
-                        </div>
+                        
                         <div class="contact-item-premium">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>4cü mikrorayon, 20 Yanvar küçəsi 35, Bakı</span>
@@ -2173,7 +2287,7 @@
             </div>
         </section>
 
-        <!-- Courses Page -->
+        <!-- Xidmetler Page -->
         <section id="courses" class="page-section">
             <a href="#" class="back-button" data-page="home">
                 <i class="fas fa-arrow-left"></i>
@@ -2181,134 +2295,63 @@
             </a>
             
             <div class="section-header">
-                <div class="section-label">Proqramlar</div>
-                <h2 class="page-title">Kurs Proqramları</h2>
-                <p class="section-subtitle">3-6 yaş uşaqlar üçün xüsusi hazırlanmış premium kurs proqramları</p>
+                <div class="section-label">Xidmətlərimiz</div>
+                <h2 class="page-title">Tədris proqramları</h2>
+               
             </div>
             
+ 
+
             <div class="courses-grid">
-                <div class="course-card fade-in">
-                    <h3 class="course-title">Azərbaycan Dili Programı</h3>
-                    <p class="course-details">Həftədə 5 gün, gündə 4 saat. Əlifba, oxuma, yazma, riyazi anlayışlar və məntiqi düşüncə inkişafı.</p>
+
+
+                 <div class="course-card fade-in">
+                    <h3 class="course-title">KIDS</h3>
+                     <span>Azərbaycan, Rus və İnglis bölmələri üçün</span>
                     <ul class="course-features">
-                        <li><i class="fas fa-check"></i> Xüsusi metodika ilə təhsil</li>
-                        <li><i class="fas fa-check"></i> İnteraktiv materiallar</li>
-                        <li><i class="fas fa-check"></i> Fərdi yanaşma</li>
-                        <li><i class="fas fa-check"></i> Aylıq inkişaf hesabatları</li>
+                        <li><i class="fas fa-check"></i> Savad təlimi</li>
+                        <li><i class="fas fa-check"></i> Riyaziyyat</li>
+                        <li><i class="fas fa-check"></i> İnglis dili </li>
+                        <li><i class="fas fa-check"></i> Həyat bilgisi</li>
+                    </ul>
+                </div>
+                 <div class="course-card fade-in">
+                    <h3 class="course-title">Abituriyent</h3>
+                    <span>Azərbaycan və Rus bölməmələri üçün</span>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check"></i> Ana dili</li>
+                        <li><i class="fas fa-check"></i> Riyaziyyat</li>
+                        <li><i class="fas fa-check"></i> İnglis dili</li>
+                        
+                    </ul>
+                </div>
+
+            
+                
+                <div class="course-card fade-in">
+                    <h3 class="course-title">ETÜD</h3>
+                     <span>Azərbaycan və Rus bölməmələri üçün</span>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check"></i> Ana dili</li>
+                        <li><i class="fas fa-check"></i> Riyaziyyat</li>
+                        <li><i class="fas fa-check"></i> İnglis dili </li>
+                        <li><i class="fas fa-check"></i> Həyat bilgisi</li>
+                    </ul>
+                </div>
+
+                <div class="course-card fade-in">
+                    <h3 class="course-title">Poliqlot </h3>
+                    <ul class="course-features">
+                        <li><i class="fas fa-check"></i> Azərbaycan dili</li>
+                        <li><i class="fas fa-check"></i> Rus dili</li>
+                        <li><i class="fas fa-check"></i> İnglis dili</li>
                     </ul>
                 </div>
                 
-                <div class="course-card fade-in">
-                    <h3 class="course-title">Rus Dili Programı</h3>
-                    <p class="course-details">Həftədə 5 gün, gündə 4 saat. Əlifba, fonetika, danışma, oxuma və mədəniyyət dərsləri.</p>
-                    <ul class="course-features">
-                        <li><i class="fas fa-check"></i> Native müəllimlər</li>
-                        <li><i class="fas fa-check"></i> Kommunikativ metod</li>
-                        <li><i class="fas fa-check"></i> Mədəniyyət dərsləri</li>
-                        <li><i class="fas fa-check"></i> İnteraktiv oyunlar</li>
-                    </ul>
-                </div>
-                
-                <div class="course-card fade-in">
-                    <h3 class="course-title">İngilis Dili Programı</h3>
-                    <p class="course-details">Həftədə 5 gün, gündə 4 saat. Cambridge metodikası, oyunla öyrənmə, vizual materiallar.</p>
-                    <ul class="course-features">
-                        <li><i class="fas fa-check"></i> Cambridge metodikası</li>
-                        <li><i class="fas fa-check"></i> Multimedia dərslər</li>
-                        <li><i class="fas fa-check"></i> Oyunla öyrənmə</li>
-                        <li><i class="fas fa-check"></i> Beynəlxalq sertifikat</li>
-                    </ul>
-                </div>
             </div>
         </section>
 
-        <!-- Teachers Page -->
-        <section id="teachers" class="page-section">
-            <a href="#" class="back-button" data-page="home">
-                <i class="fas fa-arrow-left"></i>
-                <span>Əsas Səhifəyə Qayıt</span>
-            </a>
-            
-            <div class="section-header">
-                <div class="section-label">Komandamız</div>
-                <h2 class="page-title">Peşəkar Müəllimlər</h2>
-                <p class="section-subtitle">Uşaqlarla işləmə təcrübəsi olan yüksək ixtisaslı pedaqoqlar</p>
-            </div>
-            
-            <div class="teachers-grid">
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Gülmirə Axundova</h3>
-                    <div class="teacher-title">Azərbaycan Dili Müəllimi</div>
-                    <p class="teacher-bio">7 illik təcrübə. Uşaqlar üçün xüsusi metodika müəllifi. Pedaqoji elmlər namizədi.</p>
-                </div>
-                
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Pərnaz Vəliyeva</h3>
-                    <div class="teacher-title">Azərbaycan Dili Müəllimi</div>
-                    <p class="teacher-bio">10 illik təcrübə. Uşaqlar üçün xüsusi metodika müəllifi. Pedaqoji elmlər namizədi.</p>
-                </div>
-
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Esmira Məlikova</h3>
-                    <div class="teacher-title">Azərbaycan Dili Müəllimi</div>
-                    <p class="teacher-bio">7 illik təcrübə. Uşaqlar üçün xüsusi metodika müəllifi. Pedaqoji elmlər namizədi.</p>
-                </div>
-                
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Aynur Qədirova</h3>
-                    <div class="teacher-title">Azərbaycan dili müəllimi</div>
-                    <p class="teacher-bio">10 illik təcrübə. Uşaqlarla işləmə üzrə ixtisaslaşmış. "Uşaq Psixologiyası" üzrə magistr.</p>
-                </div>
-                
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Günel İsmayılova</h3>
-                    <div class="teacher-title">Rus Dili Müəllimi</div>
-                    <p class="teacher-bio">Native speaker. 8 illik təcrübə. Uşaqlar üçün rus dili dərslikləri müəllifi.</p>
-                </div>
-
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Çinarə İlhamlı</h3>
-                    <div class="teacher-title">Rus dili müəllimi</div>
-                    <p class="teacher-bio">2 illik təcrübə. Uşaqlarla işləmə üzrə ixtisaslaşmış. "Uşaq Psixologiyası" üzrə magistr.</p>
-                </div>
-                
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Dilarə Əliyeva</h3>
-                    <div class="teacher-title">İngilis Dili Müəllimi</div>
-                    <p class="teacher-bio">5 illik təcrübə. Uşaqlar üçün ingilis dili proqramları üzrə mütəxəssis.</p>
-                </div>
-
-                <div class="teacher-card fade-in">
-                    <div class="teacher-image">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="teacher-name">Könül Muradova</h3>
-                    <div class="teacher-title">İngilis Dili Müəllimi</div>
-                    <p class="teacher-bio">5 illik təcrübə. Uşaqlar üçün ingilis dili proqramları üzrə mütəxəssis.</p>
-                </div>
-            </div>
-        </section>
+       
 
         <!-- Schedule Page -->
         <section id="schedule" class="page-section">
@@ -2319,8 +2362,8 @@
             
             <div class="section-header">
                 <div class="section-label">Təqvim</div>
-                <h2 class="page-title">Dərs Qrafiki</h2>
-                <p class="section-subtitle">2026-cı il tədris qrafiki. Həftəlik dərs cədvəli</p>
+                <h2 class="page-title">Dərs cədvəli</h2>
+                <p class="section-subtitle">2026-cı il tədris ilinə həftəlik dərs cədvəli</p>
             </div>
             
             <div class="schedule-grid">
@@ -2328,32 +2371,86 @@
                     <h3 style="margin-bottom: 25px; color: var(--light); font-size: 1.4rem; font-weight: 800;">Həftəlik Cədvəl</h3>
                     
                     <div class="schedule-item">
-                        <div class="schedule-time">09:00-11:30</div>
+                        <div class="schedule-time"> Həftənin I-V-cı günləri 09:00-11:30</div>
                         <div class="schedule-details">
+
                             <h4>Azərbaycan Dili | Rus Dili | İngilis Dili</h4>
-                            <p>Əlifba, oxuma, yazma, riyaziyyat</p>
-                            <p>Danışma, oxuma, mədəniyyət</p>
-                            <p>Oyunla öyrənmə, multimedia</p>
+  <ul style="list-style: none; padding-left: 0;">
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Savad təlimi
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Uşaq ədəbiyyatı
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Nitq inkişafı
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Sadə riyazi anlayış
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Məntiqi
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    İngilis dili
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Təsviri fəaliyyət (əmək)
+  </li>
+  <li style="position: relative; padding-left: 25px;">
+    <span style="position: absolute; left: 0; top: 0;">✔</span>
+    Təsviri incəsənət (rəsm)
+  </li>
+</ul>
+
+                        
                         </div>
                     </div>
 
                     <div class="schedule-item">
-                        <div class="schedule-time">09:00-13:00</div>
+                        <div class="schedule-time">Həftənin I-V-cı günləri 09:00-13:00</div>
                         <div class="schedule-details">
                             <h4>Azərbaycan Dili | Rus Dili | İngilis Dili</h4>
-                            <p>Əlifba, oxuma, yazma, riyaziyyat</p>
-                            <p>Danışma, oxuma, mədəniyyət</p>
-                            <p>Oyunla öyrənmə, multimedia</p>
+   <ul style="list-style: none; padding-left: 0;">
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Savad təlimi</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Uşaq ədəbiyyatı</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Nitq inkişafı</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Sadə riyazi anlayış</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Məntiqi</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> İngilis dili</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Təsviri fəaliyyət (əmək)</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Təsviri incəsənət (rəsm)</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Hüsnixət</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Bacarıqlı əl</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Elm və tətqiqat</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Şahmat</li>
+</ul>
+
                         </div>
                     </div>
 
                     <div class="schedule-item">
-                        <div class="schedule-time">12:00-14:30</div>
+                        <div class="schedule-time">Həftənin I-V-cı günləri12:00-14:30</div>
                         <div class="schedule-details">
                             <h4>Azərbaycan dili | Rus dili | İngilis dili</h4>
-                            <p>Əlifba, oxuma, yazma, riyaziyyat</p>
-                            <p>Danışma, oxuma, mədəniyyət</p>
-                            <p>Oyunla öyrənmə, multimedia</p>
+            <ul style="list-style: none; padding-left: 0;">
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Savad təlimi</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Uşaq ədəbiyyatı</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Nitq inkişafı</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Sadə riyazi anlayış</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Məntiqi</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> İngilis dili</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Təsviri fəaliyyət (əmək)</li>
+  <li style="position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; top: 0;">✔</span> Təsviri incəsənət (rəsm)</li>
+</ul>
+
                         </div>
                     </div>
                 </div>
@@ -2437,16 +2534,7 @@
                             </div>
                         </div>
                         
-                        <div class="contact-detail-item">
-                            <div class="contact-detail-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-detail-text">
-                                <h4>Email</h4>
-                                <p>rashad.ismayılzadə1@gmail.com</p>
-                                <p>24 saat ərzində cavab veririk</p>
-                            </div>
-                        </div>
+                       
                         
                         <div class="contact-detail-item">
                             <div class="contact-detail-icon">
@@ -2463,23 +2551,23 @@
             </div>
             
             <!-- Map on Contact Page -->
-            <div class="map-section" style="margin-top: 50px;">
-                <div class="section-header">
-                    <h3 class="section-title" style="font-size: 1.8rem;">Bizi Ziyarət Edin</h3>
-                </div>
-                
-                <div class="map-container">
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Kaspi Əcəmi Filialı</h3>
-                        <p>4cü mikrorayon, 20 Yanvar küçəsi 35, Bakı, Azərbaycan</p>
-                        <a href="https://maps.google.com/?q=4cü+mikrorayon,+20+Yanvar+küçəsi+35,+Bakı,+Azərbaycan" class="map-button" target="_blank">
-                            <i class="fas fa-directions"></i>
-                            <span>Xəritədə Aç</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+
+
+<div class="map-container" style="margin-top: 24px";>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.150395422243!2d49.80618318828448!3d40.41312672496675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079756f6d9%3A0x8c0027fa5c7c0f0!2zNDDCsDI0JzQ3LjMiTiA0OcKwNDgnMjcuOSJF!5e0!3m2!1sen!2s!4v1705900000000!5m2!1sen!2s"
+        width="100%" 
+        height="350" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+     
+    </iframe>
+</div>
+
+
         </section>
 
         <!-- Premium Footer -->
@@ -2490,7 +2578,7 @@
                     <span>Kaspi Əcəmi</span>
                 </a>
                 
-                <p class="footer-text">Kaspi məktəbəqədər hazırlıq kursu - 3-6 yaş uşaqlar üçün Azərbaycan, Rus və İngilis dillərində peşəkar təhsil.</p>
+                <p class="footer-text">Kaspi məktəbəqədər hazırlıq mərkəzi  3-6 yaş uşaqlar üçün Azərbaycan, Rus və İngilis dillərində peşəkar təhsil.</p>
                 
                 <div class="contact-info-premium" style="margin-top: 30px;">
                     <div class="contact-item-premium">
@@ -2522,7 +2610,9 @@
                     </a>
                 </div>
                 
-                <p class="copyright-premium">© 2026 Kaspi Əcəmi Premium Təhsil Mərkəzi.<br>Ana sayt: <a href="https://www.kaspi.edu.az/az/" style="color: var(--primary); text-decoration: none; font-weight: 600;">www.kaspi.edu.az</a> | Instagram Bio üçün xüsusi dizayn</p>
+                <p class="copyright-premium">© 2026 Kaspi Əcəmi Məktəbəqədər hazırlıq mərkəzi.<br>Ana sayt: <a href="https://www.kaspi.edu.az/az/" style="color: var(--primary); text-decoration: none; font-weight: 600;">www.kaspi.edu.az</a> | Instagram Bio üçün xüsusi dizayn</p>
+                <span> <a href="https://www.instagram.com/dev_horizon89//"style="color: var(--primary); text-decoration: none; font-weight: 600;">DevHorizon tərəfindən hazırlanıb</a> 
+          <p></p>
             </div>
         </footer>
     </div>
